@@ -9,8 +9,9 @@ import sys #only needed to determine Python version number
 import matplotlib #only needed to determine Matplotlib version number
 class datahandler:
 
-    def __init__(self, df):
-        self.df = df
+    def __init__(self,data):
+        self.df = pd.DataFrame(data, columns=['Company Name',
+                                       'Location', 'Job Title', 'Seniority Level', 'Employment Type'])
 
 
 # Add new job to new database
@@ -26,17 +27,15 @@ job1 = ['Apple', 'Cupertino', 'Software Enigneer 2', 'Manager', 'Full-Time']
 job2 = ['Tesla', 'Fremont', 'Software Enigneer 3', 'Associate', 'Full-Time']
 job3 = ['Amazon', 'Seattle', 'Hardware Engineer 3', 'Manager', 'Full-time']
 job4 = ['Boeing', 'Seattle', 'Hardware Engineer 1', 'Associate', 'Full-time']
-data = [job1,job2]
+dataList = [job1,job2]
 
 
 # Create the pandas DataFrame
-dataFrame = pd.DataFrame(data, columns=['Company Name',
-                                       'Location', 'Job Title', 'Seniority Level', 'Employment Type'])
-dh = datahandler(dataFrame)
+dh = datahandler(dataList)
 dh.addNewJob(job3)
 # print dataframe
 print(dh.df)
 # Export dataframe to csv file
-dataFrame.to_csv('jobApps.txt', index=False)
+dh.df.to_csv('jobApps.txt', index=False)
 # Export dataframe to excel file
-dataFrame.to_excel("output.xlsx")
+dh.df.to_excel("output.xlsx")
