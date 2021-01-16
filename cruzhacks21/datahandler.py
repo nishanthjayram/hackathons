@@ -34,7 +34,6 @@ dataFrame = pd.DataFrame(data, columns=['Company Name',
                                        'Location', 'Job Title', 'Seniority Level', 'Employment Type'])
 dh = datahandler(dataFrame)
 dh.addNewJob(job3)
-dh.addNewJob(job4)
 # print dataframe
 print(dh.df)
 # Export dataframe to csv file
