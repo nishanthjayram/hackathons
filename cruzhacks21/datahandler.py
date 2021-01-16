@@ -1,4 +1,4 @@
-from pandas import DataFrame, read_csv
+import pandas as pd
 # General syntax to import a library but no functions:
 ##import (library) as (give the library a nickname/alias)
 import matplotlib.pyplot as plt
