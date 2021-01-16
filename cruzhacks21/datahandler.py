@@ -9,14 +9,16 @@ import sys #only needed to determine Python version number
 import matplotlib #only needed to determine Matplotlib version number
 class datahandler:
 
-#Company, Job Title, Job Type, Location, Date Posted, Date Applied, Status
-    job1 = ['Apple', 'Software Engineer 2', 'Full-time', 'Santa Cruz', '1/4/2021', '1/6/2021', 'TBA']
-    job2 = ['Tesla', 'Software Engineer 3', 'Full-time', 'Fremont', '1/8/2021', '1/14/2021', 'Rejected']
-    data = {'Company Name': ['myKaarma'], 'Location': ['Long Beach, CA'], 'Job Title': ['Summer Engineering Intern'],
-            'Seniority Level': ['Internship'], 'Employment Type': ['Internship']}
+#'Company Name','Location', 'Job Title', 'Seniority Level', 'Employment Type'
+    job1 = ['Apple', 'Cupertino', 'Software Enigneer 2', 'Manager', 'Full-Time']
+    job2 = ['Tesla', 'Fremont', 'Software Enigneer 3', 'Associate', 'Full-Time']
+    job3 = ['Amazon', 'Seattle', 'Hardware Engineer 3', 'Manager', 'Full-time']
+    job4 = ['Boeing', 'Seattle', 'Hardware Engineer 1', 'Associate', 'Full-time']
+    data = [job1,job2]
 
 # Create the pandas DataFrame
-    df = pd.DataFrame.from_dict(data)
+    df = pd.DataFrame(data, columns=['Company Name',
+                                       'Location', 'Job Title', 'Seniority Level', 'Employment Type'])
 # print dataframe
     print(df)
 # Export dataframe to csv file
@@ -24,11 +26,15 @@ class datahandler:
 # Export dataframe to excel file
     df.to_excel("output.xlsx")
 
-    job3= ['Amazon', 'Seattle', 'Hardware Engineer 3', 'Manager', 'Full-time']
-    new_df = pd.DataFrame([job3], columns = ['Company Name',
+# Add new job to new database
+    def addNewJob(job):
+        new_df = pd.DataFrame([job], columns = ['Company Name',
                                              'Location', 'Job Title','Seniority Level', 'Employment Type'])
-    print(new_df)
-    df = df.append(new_df, ignore_index=True)
+        print(new_df)
+        return new_df
+
+    df = df.append(addNewJob(job3), ignore_index=True)
+    df = df.append(addNewJob(job4), ignore_index=True)
 
     print(df)
 
