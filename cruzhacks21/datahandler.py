@@ -1,15 +1,20 @@
+"""
+    Implementation of methods and classes for data management and integration
+    with Firebase.
+
+    Author(s)  :  Nishanth Jayram (https://github.com/njayram44)
+                  Sean Touchstone (https://github.com/seant001)
+                  Jay Wei         (https://github.com/Jay1020431)
+    
+    Date       :  January 17, 2021
+"""
 import pandas as pd
-# General syntax to import a library but no functions:
-##import (library) as (give the library a nickname/alias)
-import matplotlib.pyplot as plt
-import pandas as pd #this is how I usually import pandas
 import openpyxl
 import csv
-import sys #only needed to determine Python version number
-import matplotlib #only needed to determine Matplotlib version number
+import sys
 import pyrebase
-import firebase_admin
 from firebase_admin import auth as authen
+
 config = {
   "apiKey": "AIzaSyBVQ2tMd1fIGawv-V5Yo7ZUCIFBEY4QjNw",
   "authDomain": "jojoba-internship-tracker.firebaseapp.com",
@@ -19,6 +24,7 @@ config = {
 }
 
 firebase = pyrebase.initialize_app(config)
+
 class datahandler:
 
     def __init__(self,data):
@@ -42,7 +48,7 @@ class datahandler:
         self.df.to_excel("jobApplications.xlsx")
 
 # Export dataframe to CSV file
-    def exportToExcel(self):
+    def exportToCSV(self):
         self.df.to_csv('jobApplications.txt', index=False)
 
 # Get all jobs from database and print
@@ -60,7 +66,6 @@ dh = datahandler(dataList)
 # print dataframe
 print(dh.df)
 
-
 # Get a reference to the auth service
 auth = firebase.auth()
 default_app = firebase_admin.initialize_app()
@@ -75,5 +80,3 @@ user = auth.sign_in_with_email_and_password(email, password)
 dh.updateUpload()
 #Get all jobs from database and print
 print(dh.getFirebaseData())
-
-
