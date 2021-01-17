@@ -45,6 +45,9 @@ class datahandler:
     def exportToExcel(self):
         self.df.to_csv('jobApplications.txt', index=False)
 
+# Get all jobs from database and print
+    def getFirebaseData(self):
+        return self.db.child("Jobs").get().val()
 #'Company Name','Location', 'Job Title', 'Seniority Level', 'Employment Type' (TEST CASES)
 job1 = ['Apple', 'Cupertino', 'Software Enigneer 2', 'Manager', 'Full-Time']
 job2 = ['Tesla', 'Fremont', 'Software Enigneer 3', 'Associate', 'Full-Time']
@@ -70,5 +73,7 @@ user = auth.sign_in_with_email_and_password(email, password)
 # Log the user in anonymously.
 #user = auth.sign_in_anonymous()
 dh.updateUpload()
+#Get all jobs from database and print
+print(dh.getFirebaseData())
 
 
