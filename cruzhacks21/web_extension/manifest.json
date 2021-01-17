@@ -1,0 +1,11 @@
+{
+    "name": "JoJoba",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": ["tabs"],
+    "matches": "https://www.linkedin.com/jobs/",
+    "default_title": "JoJoba",
+    "browser_action": {
+        "default_popup": "popup.html"
+    }
+}
