@@ -67,7 +67,7 @@ email = 'seantouchstonejr@gmail.com'
 password = 'ShyShy123!'
 user = auth.sign_in_with_email_and_password(email, password)
 
-# Log the user in anonymously
+# Log the user in anonymously.
 #user = auth.sign_in_anonymous()
 dh.updateUpload()
 
