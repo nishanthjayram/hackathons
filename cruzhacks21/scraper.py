@@ -9,6 +9,7 @@
 
 # Import packages to do webscraping
 from bs4 import BeautifulSoup
+import time
 import requests
 
 # Relevant, easy-to-scrape information contained in a list
