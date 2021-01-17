@@ -1,5 +1,6 @@
 """
-    Implements functionality to webscrape job information from LinkedIn pages.
+    Additional class for generating email reminders about important updates.
+    (Early prototype stage.)
 
     Author  :   Nishanth Jayram (https://github.com/njayram44)
                 Sean Touchstone (https://github.com/seant001)
