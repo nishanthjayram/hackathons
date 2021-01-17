@@ -71,7 +71,7 @@ db = firebase.database()
 
 def addFirebaseJob(job):
     db.child("users").push(job)
-#addFirebaseJob(data)
+addFirebaseJob(data)
 db.child("users").child("MRDnuEa2Eq_oh_Uwk3Z").update({"name": "Sean Touchstone Jr"})
 #def removeFirebaseJob(job):
 
